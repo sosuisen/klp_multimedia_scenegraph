@@ -54,6 +54,23 @@ tl.to(moon, {
 moon.pivot.x = 40;
 earth.addChild(moon);
 
+/**
+ * 金星
+ */
+const venus = new PIXI.Graphics();
+const venusRadius = 19;
+venus.lineStyle(10, 0xfffff0, 0.5);
+venus.beginFill(0xffffc0, 1);
+venus.drawCircle(0, 0, venusRadius);
+venus.endFill();
+tl.to(venus, {
+  duration: 8.3, repeat: -1, ease: 'none', pixi: {
+    angle: 360
+  },
+},
+'<');
+venus.pivot.x = 180;
+
 sun.addChild(venus);
 
 /**
