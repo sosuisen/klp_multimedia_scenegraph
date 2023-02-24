@@ -1,4 +1,5 @@
 let app = new PIXI.Application({ antialias: true, width: 640, height: 640 });
+gsap.registerPlugin(PixiPlugin);
 app.ticker.stop();
 gsap.ticker.add(time => {
     app.ticker.update();
