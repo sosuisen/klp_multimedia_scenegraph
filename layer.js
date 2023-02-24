@@ -16,7 +16,8 @@ const createBox = (w, h, color) => {
   // マウスに反応するようにする。
   box.interactive = true;
   box.cursor = 'pointer';
-  box.on('pointerdown', sendToBottom); 
+  // box.on('pointerdown', sendToBottom); 
+  box.on('pointerdown', sendToTop); 
   return box;
 };
 
@@ -26,6 +27,14 @@ const sendToBottom = event => {
   // クリックされたboxをchildren配列の先頭へ追加
   container.children.unshift(event.target);
 };
+
+const sendToTop = event => {
+  // クリックされたboxをchildren配列から削除
+  container.children = container.children.filter(box => box !== event.target);
+  // クリックされたboxをchildren配列の末尾へ追加
+  container.children.push(event.target);
+};
+
 
 const box1 = createBox(100, 100, 0xff6060);
 box1.position.set(100, 100);
