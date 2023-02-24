@@ -44,7 +44,7 @@ tl.to(earth, {
     },
   },
   '<'); // < で直前のアニメーションと同時に開始
-earth.x = 230;
+earth.x = 250;
 sun.addChild(earth);
 
 /**
