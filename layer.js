@@ -1,6 +1,6 @@
 import * as PIXI from 'pixi.js';
 
-let app = new PIXI.Application({ antialias: true, width: 640, height: 640 });
+const app = new PIXI.Application({ antialias: true, width: 640, height: 640 });
 
 document.body.appendChild(app.view);
 
