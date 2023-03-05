@@ -41,4 +41,8 @@ const box3 = createBox(100, 100, 0x6060ff);
 box3.position.set(200, 200);
 container.addChild(box3);
 
+const box4 = createBox(100, 100, 0xffff06);
+box4.position.set(250, 250);
+container.addChild(box4);
+
 app.stage.addChild(container);
