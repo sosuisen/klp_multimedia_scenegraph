@@ -1,5 +1,10 @@
-let app = new PIXI.Application({ antialias: true, width: 640, height: 640 });
+import * as PIXI from 'pixi.js';
+import { gsap } from "gsap";
+import { PixiPlugin } from "gsap/PixiPlugin";
 gsap.registerPlugin(PixiPlugin);
+PixiPlugin.registerPIXI(PIXI);
+
+let app = new PIXI.Application({ antialias: true, width: 640, height: 640 });
 app.ticker.stop();
 gsap.ticker.add(time => {
   app.ticker.update();
