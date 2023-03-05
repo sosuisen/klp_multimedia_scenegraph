@@ -23,8 +23,7 @@ sun.lineStyle(7, 0xffb000, 0.5);
 sun.beginFill(0xffff90, 1);
 sun.drawCircle(0, 0, sunRadius);
 sun.endFill();
-sun.x = 320;
-sun.y = 320;
+sun.position.set(320, 320);
 app.stage.addChild(sun);
 
 /**
@@ -38,7 +37,10 @@ earth.drawCircle(0, 0, earthRadius);
 earth.endFill();
 tl.to(earth, {
   // 月の公転周期を1とした時の地球の公転周期
-  duration: 13.4, repeat: -1, ease: 'none', angle: 360
+  duration: 13.4, repeat: -1, ease: 'none', 
+  pixi: {
+    rotation: 360,
+  },
 });
 earth.pivot.x = 250;
 sun.addChild(earth);
@@ -53,7 +55,10 @@ moon.beginFill(0xffffff, 1);
 moon.drawCircle(0, 0, moonRadius);
 moon.endFill();
 tl.to(moon, {
-  duration: 1, repeat: -1, ease: 'none', angle: 360
+  duration: 1, repeat: -1, ease: 'none',
+  pixi: {
+    rotation: 360,
+  },
 },
 '<'); // < で直前のアニメーションと同時に開始
 moon.pivot.x = 40;
