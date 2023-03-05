@@ -74,8 +74,9 @@ venus.beginFill(0xffffc0, 1);
 venus.drawCircle(0, 0, venusRadius);
 venus.endFill();
 tl.to(venus, {
-  duration: 8.3, repeat: -1, ease: 'none', pixi: {
-    angle: 360
+  duration: 8.3, repeat: -1, ease: 'none',
+  pixi: {
+    angle: 360,
   },
 },
 '<');
