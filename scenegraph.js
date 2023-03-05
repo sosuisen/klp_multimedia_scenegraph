@@ -1,5 +1,10 @@
-let app = new PIXI.Application({ antialias: true, width: 640, height: 640 });
+import * as PIXI from 'pixi.js';
+import { gsap } from "gsap";
+import { PixiPlugin } from "gsap/PixiPlugin";
 gsap.registerPlugin(PixiPlugin);
+PixiPlugin.registerPIXI(PIXI);
+
+let app = new PIXI.Application({ antialias: true, width: 640, height: 640 });
 app.ticker.stop();
 gsap.ticker.add(time => {
   app.ticker.update();
@@ -27,7 +32,8 @@ const createBox = (w, h, color) => {
  * containerにbox1とbox2を追加
  */
 const box1 = createBox(50, 50, 0xff0000);
-// position.set()は box1.x = 320; box1.y = 100; でもよい。
+// position.set(150, 100)は box1.x = 150; box1.y = 100; でもよい。
+// 両方設定するときは set のほうがスッキリするかも。
 box1.position.set(150, 100);
 container.addChild(box1);
 
@@ -51,7 +57,10 @@ box1.addChild(box3);
 const box4 = createBox(50, 50, 0xffff00);
 box4.position.set(75, 150);
 tl.to(box4, {
-  angle: 360, duration: 1, repeat: -1, ease: 'none', yoyo: true,
+  duration: 1, repeat: -1, ease: 'none', yoyo: true,
+  pixi: {
+    rotation: 360, 
+  },
 }, '<');
 box1.addChild(box4);
 
