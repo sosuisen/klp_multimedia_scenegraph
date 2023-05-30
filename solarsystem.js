@@ -59,8 +59,6 @@ tl.to(moon, {
 moon.pivot.x = 40;
 earth.addChild(moon);
 
-sun.addChild(venus);
-
 /**
  * UI
  */
